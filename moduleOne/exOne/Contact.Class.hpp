@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
 class Contact {
 
@@ -14,10 +15,12 @@ class Contact {
         std::string     darkestSecret;
 
         void    getInfo(std::string prompt, std::string &contactInfo);
+        static void    printEntry(Contact &contractEntry);
         
     public:
         int             indexPos;
         static void addContact(Contact &contactEntry);
+        static void printContacts(Contact *contactEntry, int i);
 
         Contact(void);
         ~Contact(void);

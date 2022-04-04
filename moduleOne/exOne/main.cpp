@@ -6,10 +6,10 @@ int main(void)
     std::string command;
     Contact     contactEntry[8];
 
-    while (command != "Exit") {
+    while (1) {
         
         std::cout << "Enter Command (Add, Search, Exit): ";
-        std::getline(std::cin, command);
+        std::cin >> command;
         if (command == "Add") {
             if (++i < 8) {
                 contactEntry[i].indexPos = i;
@@ -20,6 +20,16 @@ int main(void)
                 Contact::addContact(contactEntry[1]);
             }    
         }
+        else if (command == "Search") {
+            if (i > 0)
+                Contact::printContacts(contactEntry, i);
+            else
+                std::cout << "No Contacts to Search, Add Some First" << std::endl;
+        }
+        else if (command == "Exit")
+            break;
+        else 
+            std::cout << "Invalid Command" << std::endl;
     }
     return(0);
 }

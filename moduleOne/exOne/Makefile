@@ -1,14 +1,16 @@
 NAME= PhoneBook
-SRC= PhoneBook.cpp\
+SRC= main.cpp\
 			Contact.Class.cpp
 INC= Contact.Class.hpp
 OBJ= $(SRC:.cpp=.o)
-FLAGS= -Wall -Wextra -Werror
+FLAGS= -Wall -Wextra -Werror -std=c++98
 
-all: 
-	g++ $(FLAGS) $(INC) $(OBJ) -o $(NAME)
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	g++ $(FLAGS) $(INC) $(SRC) 
 
 fclean:
-	rm -f $(NAME)
+	rm -f $(OBJ)
 
 re: fclean all
