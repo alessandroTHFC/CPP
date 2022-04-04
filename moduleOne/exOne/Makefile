@@ -1,16 +1,22 @@
 NAME= PhoneBook
 SRC= main.cpp\
 			Contact.Class.cpp
-INC= Contact.Class.hpp
 OBJ= $(SRC:.cpp=.o)
 FLAGS= -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	g++ $(FLAGS) $(INC) $(SRC) 
+	@echo ...Compiling PhoneBook
+	@g++ $(FLAGS) $(OBJ) -o $(NAME)
+	@echo --PhoneBook Ready-- 
 
-fclean:
-	rm -f $(OBJ)
+clean:
+	@rm -f $(OBJ)
+	@echo --Cleaning Object Files--
+
+fclean: clean
+	@rm -f $(NAME)
+	@echo --Cleaning Executable--
 
 re: fclean all

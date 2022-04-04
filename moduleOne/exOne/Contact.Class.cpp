@@ -36,11 +36,17 @@ void    Contact::printEntry(Contact &contactEntry){
     return;
 }
 
+std::string    Contact::truncateTxt(std::string text) {
+    if(text.length() > 10) {
+        text.resize(9);
+        text.resize(10, '.');
+    }
+    return (text);
+}
+
 void    Contact::printContacts(Contact *contactEntry, int i) {
     int j = 0;
-    std::string first_name;
-    std::string last_name;
-    std::string _nickname;
+
     std::cout << std::setw(10) << "|  index   |"
 	<< std::setw(10) << "  f_name  |"
 	<< std::setw(10) << "  l_name  |"
@@ -48,13 +54,13 @@ void    Contact::printContacts(Contact *contactEntry, int i) {
 	std::cout << "————————————————————————————————————————————" << std::endl;
     while (j++ < i)
     {
-        first_name = contactEntry[j].firstName;
-        last_name = contactEntry[j].lastName;
-        _nickname = contactEntry[j].nickName;
+        std::string first_name = contactEntry[j].firstName;
+        std::string last_name = contactEntry[j].lastName;
+        std::string _nickname = contactEntry[j].nickName;
         std::cout << "|" << std::setw(10) << j;
-        std::cout << "|" << std::setw(10) << first_name;
-        std::cout << "|" << std::setw(10) << last_name;
-        std::cout << "|" << std::setw(10) << _nickname << std::endl;
+        std::cout << "|" << std::setw(10) << Contact::truncateTxt(first_name);
+        std::cout << "|" << std::setw(10) << Contact::truncateTxt(last_name);
+        std::cout << "|" << std::setw(10) << Contact::truncateTxt(_nickname) << std::endl;
     } 
     std::cout << "Input Desired Contact's Index Number: ";
     std::cin >> j;

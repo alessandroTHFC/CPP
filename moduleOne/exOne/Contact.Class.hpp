@@ -16,6 +16,7 @@ class Contact {
 
         void    getInfo(std::string prompt, std::string &contactInfo);
         static void    printEntry(Contact &contractEntry);
+        static std::string    truncateTxt(std::string text);
         
     public:
         int             indexPos;
