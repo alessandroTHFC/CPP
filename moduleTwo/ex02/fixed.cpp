@@ -93,5 +93,43 @@ bool    fixed::operator>(const fixed &obj2){
 }
 
 fixed   fixed::operator*(const fixed &obj2){
-    
+    std::cout << "Overloading * Operator, returns value of obj times obj2.." << std::endl;
+    return(this->value * obj2.getRedRaw());
+}
+
+fixed   fixed::operator+(const fixed &obj2){
+    std::cout << "Overloading + Operator, returns value of obj plus obj2.." << std::endl;
+    return(this->value + obj2.getRedRaw());
+}
+
+fixed   fixed::operator-(const fixed &obj2){
+    std::cout << "Overloading - Operator, returns value of obj minus obj2.." << std::endl;
+    return(this->value - obj2.getRedRaw());
+}
+
+fixed   fixed::operator/(const fixed &obj2){
+    std::cout << "Overloading / Operator, returns value of obj divide obj2.." << std::endl;
+    return(this->value / obj2.getRedRaw());
+}
+
+fixed&  fixed::operator++(void){
+    this->value++;
+    return(*this);
+}
+
+fixed&  fixed::operator--(void){
+    this->value--;
+    return(*this);
+}
+
+fixed  fixed::operator++(int){
+    fixed   temp(*this);
+    this->value++;
+    return(temp);
+}
+
+fixed  fixed::operator--(int){
+    fixed   temp(*this);
+    this->value--;
+    return(temp);
 }

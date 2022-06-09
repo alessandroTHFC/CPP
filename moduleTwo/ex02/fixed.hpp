@@ -30,8 +30,12 @@ public:
     fixed   fixed::operator+(const fixed &obj2);
     fixed   fixed::operator-(const fixed &obj2);
     fixed   fixed::operator/(const fixed &obj2);
+    fixed&  fixed::operator++(void);
+    fixed&  fixed::operator--(void);
+    fixed   fixed::operator++(int);
+    fixed   fixed::operator--(int);
 
-
+//getting & setting
     int getRedRaw(void) const;
     void    setRawBits(int const &newVal);
 
