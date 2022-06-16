@@ -4,14 +4,16 @@
 # include <string>
 # include <iostream>
 
-class   FlapTrap {
+class   ClapTrap {
 
     public:
-        FlapTrap(std::string _flapName);
-       ~FlapTrap(void);
+        ClapTrap(std::string _flapName);
+       ~ClapTrap(void);
        void attack(const std::string& target);
        void takeDamage(unsigned int amount);
        void beRepaired(unsigned int amount);
+       int  getAttack(void) const;
+       void setAttack(int amount);
     
     private:
         std::string _name;
