@@ -17,8 +17,11 @@ public:
 //Operator Overloads
     fragTrap &operator=(fragTrap const &toCopy);
 //FragTrap Functions
-    void    attack(unsigned int target);
+    void    attack(std::string const target);
     void    getHighGuys(void);
+//Getters & Setters
+    void    setName(std::string newName);
+    std::string getName(void);
 };
 
 #endif

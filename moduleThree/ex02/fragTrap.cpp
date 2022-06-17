@@ -20,7 +20,7 @@ fragTrap::fragTrap(std::string name) {
     std::cout << "fragTrap " << this->_name << " was born" << std::endl;
 }
 
-fragTrap::fragTrap(fragTrap const &oldFag) {
+fragTrap::fragTrap(fragTrap const &oldFag) : ClapTrap(oldFag) {
     std::cout << "fragTrap copy constructor is called" << std::endl;
     *this = oldFag;
 }
@@ -46,7 +46,7 @@ fragTrap &fragTrap::operator=(fragTrap const &toCopy){
 ////////////////////
 ///Frag Functions///
 ////////////////////
-void    fragTrap::attack(unsigned int target) {
+void    fragTrap::attack(std::string const target) {
     if(this->_energy <= 0)
     {
         std::cout << this->_name << "doesn't have enough energy to attack" << std::endl;
@@ -64,4 +64,15 @@ void    fragTrap::attack(unsigned int target) {
 
 void    fragTrap::getHighGuys(void) {
     std::cout << this->_name << " is passing the doob to the left" << std::endl;
+}
+
+///////////////////////
+///Getters & Setters///
+///////////////////////
+void    fragTrap::setName(std::string newName) {
+    this->_name = newName;
+}
+
+std::string fragTrap::getName(){
+    return(this->_name);
 }
