@@ -8,8 +8,7 @@ class   ClapTrap {
 
     public:
         ClapTrap(void);
-        ClapTrap(std::string _flapName);
-        ClapTrap(ClapTrap const &oldClap);
+        ClapTrap(std::string Name);
        ~ClapTrap(void);
        void attack(const std::string& target);
        void takeDamage(unsigned int amount);
@@ -17,7 +16,7 @@ class   ClapTrap {
        int  getAttack(void) const;
        void setAttack(int amount);
     
-    private:
+    protected:
         std::string _name;
         int _hp;
         int _energy;

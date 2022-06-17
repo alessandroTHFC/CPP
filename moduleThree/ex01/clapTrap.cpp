@@ -6,26 +6,21 @@ ClapTrap::ClapTrap(void)
     this->_hp = 10;
     this->_energy = 10;
     this->_attack = 2;
-    std::cout << "A default ClapTrap named was born" << std::endl;
+    std::cout << "A default ClapTrap was born" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string _flapName)
+ClapTrap::ClapTrap(std::string name)
 {
-    this->_name = _flapName;
+    this->_name = name;
     this->_hp = 10;
     this->_energy = 10;
     this->_attack = 2;
     std::cout << "A ClapTrap named " << this->_name << " was born" << std::endl;
 }
 
-ClapTrap::ClapTrap(ClapTrap const &oldClap) {
-    std::cout << "Claptrap copy constructer called" << std::endl;
-    *this = oldClap;
-}
-
 ClapTrap::~ClapTrap(void)
 {
-    std::cout << this->_name << " has died, Game Over" << std::endl;
+    std::cout <<"ClapTrap " << this->_name << " has died, Game Over" << std::endl;
 }
 
 int     ClapTrap::getAttack(void) const{
@@ -55,22 +50,22 @@ void    ClapTrap::attack(const std::string& target){
 
 void    ClapTrap::takeDamage(unsigned int amount){
     if(amount - this->_hp <= 0)
-        std::cout << "ClapTrap " << this->_name << "recieved " << amount << " damage and is now dead" << std::endl;
+        std::cout << this->_name << "recieved " << amount << " damage and is now dead" << std::endl;
     else if(amount - this->_hp > 0){
-        std::cout << "ClapTrap " << this->_name << " recieved " << amount << " damage" << std::endl;
+        std::cout << this->_name << " recieved " << amount << " damage" << std::endl;
         this->_hp -= amount;
-        std::cout << "ClapTrap " << this->_name << " now has " << this->_hp << " HP left" << std::endl;
+        std::cout << this->_name << " now has " << this->_hp << " HP left" << std::endl;
     }
 }
 
 void    ClapTrap::beRepaired(unsigned int amount){
-    if(this->_hp > 0)
+    if(this->_hp > 0 && this->_energy > 0)
     {
         this->_hp += amount;
-        std::cout << "ClapTrap " << this->_name << " has been repaired and gained " << amount << " HP" << std::endl;
+        std::cout << this->_name << " has been repaired and gained " << amount << " HP" << std::endl;
         this->_energy--;
-        std::cout << "ClapTrap " << this->_name << " has 1 energy point deducted, total energy left is " << this->_energy << std::endl;
+        std::cout << this->_name << " has 1 energy point deducted, total energy left is " << this->_energy << std::endl;
     }
     else
-        std::cout << "ClapTrap " << this->_name << " can't be repaired because it's been KO'd" << std::endl;
+        std::cout << this->_name << " can't be repaired because it's been KO'd" << std::endl;
 }
