@@ -1,4 +1,4 @@
-NAME= battleFlapTraps
+NAME= battleScav
 SRC= main.cpp clapTrap.cpp scavTrap.cpp
 FLAGS= -Wextra -Werror -Wall -std=c++98
 

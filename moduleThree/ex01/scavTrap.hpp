@@ -15,10 +15,11 @@ public:
     ///Deconstructors
     ~scavTrap();
     //operator overloads
-    scavTrap &operator=(scavTrap const &newScav);
+    scavTrap &operator=(scavTrap const &toCopy);
     //scavTrap functions
     void    attack(std::string const &target);
     void    guardGate(void);
+    std::string getName(void);
 };
 
 #endif
