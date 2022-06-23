@@ -24,6 +24,7 @@ public:
    void    makeSound(void) const; 
    Brain*   getBrain(void) const;
    void     dogsIdeas(std::string idea);
+   void     whatAmIThinking(int index);
 };
 
 #endif

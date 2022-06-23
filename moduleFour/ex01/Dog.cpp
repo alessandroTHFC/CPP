@@ -20,6 +20,7 @@ Dog::Dog(Dog const &oldDog): Animal(oldDog) {
 
 Dog::~Dog(void) {
     std::cout << "Dog Deconstructed" << std::endl;
+    delete _brain;
 }
 
 /////////////////
@@ -45,7 +46,9 @@ Brain*  Dog::getBrain(void) const {
 }
 
 void    Dog::dogsIdeas(std::string idea) {
-    std::cout << "get fucked" << std::endl;
-    ((Dog*)this)->_brain->setIdeas(idea);
-    std::cout << "eat a dick" << std::endl;
+    _brain->setIdeas(idea);
+}
+
+void    Dog::whatAmIThinking(int index) {
+    std::cout << ">>> The Dogs idea is " << _brain->getIdeas(index) << " <<<" << std::endl;
 }

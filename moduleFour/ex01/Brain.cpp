@@ -42,12 +42,9 @@ std::string Brain::getIdeas(int indexPos) {
 
 void    Brain::setIdeas(std::string idea) {
     int i = 1;
-    std::cout << "sti cazzi" << std::endl;
     while (!this->_ideas[i].empty()) {
-        std::cout << "ffs" << std::endl;
         i++;
     }
-    std::cout << "allo allo" << std::endl;
     this->_ideas[i] = idea;
-    std::cout << "not setIdeas" << std::endl;
+    
 }

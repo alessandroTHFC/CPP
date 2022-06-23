@@ -24,6 +24,8 @@ public:
 ///Cat Functions
    void    makeSound(void) const; 
    Brain*    getBrain(void) const;
+   void     catsIdeas(std::string idea);
+   void     whatAmIThinking(int index);
 };
 
 #endif

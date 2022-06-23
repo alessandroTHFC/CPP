@@ -6,6 +6,7 @@
 
 Cat::Cat(void): Animal("Cat") {
     std::cout << "Default Cat Constructor called" << std::endl;
+    _brain = new Brain;
 }
 
 Cat::Cat(Cat const &oldCat): Animal(oldCat) {
@@ -19,6 +20,7 @@ Cat::Cat(Cat const &oldCat): Animal(oldCat) {
 
 Cat::~Cat(void) {
     std::cout << "Cat Deconstructed" << std::endl;
+    delete _brain;
 }
 
 /////////////////
@@ -43,3 +45,10 @@ Brain*  Cat::getBrain(void) const {
     return(this->_brain);
 }
 
+void    Cat::catsIdeas(std::string idea) {
+    _brain->setIdeas(idea);
+}
+
+void    Cat::whatAmIThinking(int index) {
+    std::cout << ">>> The cats idea is " << _brain->getIdeas(index) << " <<<" << std::endl;
+}
