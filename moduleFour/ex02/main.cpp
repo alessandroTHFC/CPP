@@ -3,6 +3,7 @@
 
 int main(void)
 {
+    //Animal class is now AAnimal class to show it has become an Abstract Class
     AAnimal* catsNdawgs[10];
 
         for(int i = 0; i <= 10; i++){
@@ -39,12 +40,14 @@ int main(void)
     for (int i = 0; i <=10; i++)
         delete catsNdawgs[i];
 
+    //testing copy constructor
     Cat Simba;
     Simba.catsIdeas("Will this copy work?");
     Cat adultSimba(Simba);
 
     adultSimba.whatAmIThinking(1);
 
+    //testing operator overload of =
     Dog rex;
     rex.dogsIdeas("Where tha bitches at??");
 
