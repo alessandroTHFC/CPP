@@ -11,6 +11,7 @@ Cat::Cat(void): Animal("Cat") {
 
 Cat::Cat(Cat const &oldCat): Animal(oldCat) {
     std::cout << "Copy Cat Constructor called" << std::endl;
+    this->_brain = new Brain(*oldCat.getBrain());
     *this = oldCat;
 }
 
@@ -50,5 +51,6 @@ void    Cat::catsIdeas(std::string idea) {
 }
 
 void    Cat::whatAmIThinking(int index) {
+    std::cout << "hey" << std::endl;
     std::cout << ">>> The cats idea is " << _brain->getIdeas(index) << " <<<" << std::endl;
 }

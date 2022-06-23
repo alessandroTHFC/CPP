@@ -11,6 +11,7 @@ Dog::Dog(void): Animal("Dog") {
 
 Dog::Dog(Dog const &oldDog): Animal(oldDog) {
     std::cout << "Dog Copy Constructor called" << std::endl;
+    _brain = new Brain(*oldDog.getBrain());
     *this = oldDog;
 }
 
@@ -28,7 +29,9 @@ Dog::~Dog(void) {
 /////////////////
 
 Dog  &Dog::operator=(Dog const &toCopy) {
+    std::cout << "Overloading the = Operator" << std::endl;
     this->_type = toCopy._type;
+    this->_brain = new Brain(*toCopy.getBrain());
     return(*this);
 }
 

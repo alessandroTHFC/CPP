@@ -38,4 +38,18 @@ int main(void)
     }
     for (int i = 0; i <=10; i++)
         delete catsNdawgs[i];
+
+    Cat Simba;
+    Simba.catsIdeas("Will this copy work?");
+    Cat adultSimba(Simba);
+
+    adultSimba.whatAmIThinking(1);
+
+    Dog rex;
+    rex.dogsIdeas("Where tha bitches at??");
+
+    Dog Bruno;
+    Bruno = rex;
+
+    Bruno.whatAmIThinking(1);
 }
