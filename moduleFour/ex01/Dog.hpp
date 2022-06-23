@@ -23,6 +23,7 @@ public:
 ///Dog Functions
    void    makeSound(void) const; 
    Brain*   getBrain(void) const;
+   void     dogsIdeas(std::string idea);
 };
 
 #endif

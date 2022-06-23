@@ -6,6 +6,7 @@
 
 Dog::Dog(void): Animal("Dog") {
     std::cout << "Default Dog Constructor called" << std::endl;
+    _brain = new Brain;
 }
 
 Dog::Dog(Dog const &oldDog): Animal(oldDog) {
@@ -41,4 +42,10 @@ void    Dog::makeSound(void) const {
 Brain*  Dog::getBrain(void) const {
     std::cout << "Layin back gettin some brain" << std::endl;
     return(this->_brain);
+}
+
+void    Dog::dogsIdeas(std::string idea) {
+    std::cout << "get fucked" << std::endl;
+    ((Dog*)this)->_brain->setIdeas(idea);
+    std::cout << "eat a dick" << std::endl;
 }
