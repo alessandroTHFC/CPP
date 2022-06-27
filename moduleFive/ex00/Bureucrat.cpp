@@ -32,6 +32,22 @@ bureucrat::~bureucrat(void){
     std::cout << "Local bureucrat took a header off the office roof" << std::endl;
 }
 
+//////////////////////////
+///Operator Overloading///
+//////////////////////////
+bureucrat &bureucrat::operator=(bureucrat const &toCopy){
+    this->_grade = toCopy._grade;
+    this->_name = toCopy._name;
+    std::cout << "Overloading the = Operator" << std::endl;
+    return(*this);
+}
+
+std::ostream &operator<<(std::ostream &stream, bureucrat const &bCrat) {
+    stream << "Bureucrat: " << bCrat.getName() << " - Official Grade: " << bCrat.getGrade() << std::endl;
+    std::cout << "Overloading the << Operator" << std::endl;
+    return(stream);
+}
+
 /////////////
 ///Getters///
 /////////////
@@ -63,10 +79,10 @@ void bureucrat::decrementGrade(void) {
 ///////////////////////
 ///Exception Methods///
 ///////////////////////
-const char *bureucrat::gradeTooLowException::whut(void) const throw(){
+const char *bureucrat::gradeTooLowException::what(void) const throw(){
     return("Grade is too low should be between 1 & 150 cockhead");
 } 
 
-const char *bureucrat::gradeTooHighException::whut(void) const throw(){
+const char *bureucrat::gradeTooHighException::what(void) const throw(){
     return("Grade is too high should be between 1 & 150 cockhead");
 } 

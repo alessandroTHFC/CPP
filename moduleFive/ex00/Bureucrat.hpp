@@ -1,5 +1,5 @@
-#ifndef BCRAT_HPP
-# define BCRAT_HPP
+#ifndef BUREUCRAT_HPP
+# define BUREUCRAT_HPP
 
 #include <iostream>
 
@@ -27,13 +27,13 @@ class bureucrat {
         class gradeTooHighException: public std::exception 
         {
             public:
-                virtual const char *whut() const throw();
+                virtual const char *what() const throw();
         };
         ////////////////////////////////////////////////
         class gradeTooLowException: public std::exception 
         {
             public:
-                virtual const char *whut() const throw();
+                virtual const char *what() const throw();
         };
 };
 
