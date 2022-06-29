@@ -11,7 +11,6 @@ bureucrat::bureucrat(void) {
 
 bureucrat::bureucrat(const std::string name, int grade) {
     this->_name = name;
-    //////////Do we need to use Try Catch blocks here???
     if (grade < 1)
         throw gradeTooHighException();
     else if (grade > 150)
@@ -30,7 +29,7 @@ bureucrat::bureucrat(bureucrat const &oldBureucrat) {
 ///Deconstructors///
 ////////////////////
 bureucrat::~bureucrat(void){
-    std::cout << "Local bureucrat took a header off the office roof" << std::endl;
+    std::cout << "Local bureucrat took a header off the office roof and deconstructed" << std::endl;
 }
 
 //////////////////////////

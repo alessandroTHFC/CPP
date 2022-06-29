@@ -18,10 +18,10 @@ void    Contact::addContact(Contact &contactEntry) {
 }
 
 void    Contact::getInfo(std::string prompt, std::string &contactInfo) {
-        while (1) {
+        while (contactInfo.empty()) {
             std::cout << "Enter your " << prompt;
             std::cin >> contactInfo;
-            if (contactInfo != "" && contactInfo != " ")
+            if (contactInfo == "  ")
                 break;
         }        
         std::cout << "Confirming Result as: " << contactInfo << std::endl;

@@ -17,8 +17,7 @@ int main(void) {
    }
     ///third Try Block should not return error;
      try {
-       bureucrat bCrat3("Hans", 150);
-       bCrat3.decrementGrade();
+       bureucrat bCrat3("Hans", 20);
        std::cout << bCrat3;
    }
    catch(std::exception &e) {
