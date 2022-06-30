@@ -20,10 +20,11 @@ Forms::Forms(const std::string name, int signGrade, int execGrade) {
         throw gradeTooLowException();
     else if (signGrade > execGrade)
         throw gradeTooHighException();
-    else 
+    else {
         this->_gradeLevelSign = signGrade;
         this->_gradeLevelExecution = execGrade;
-    std::cout << "Custom Form " << this->_name << " created" << std::endl;
+        std::cout << "Custom Form " << this->_name << " created" << std::endl;
+    }
 }
 
 Forms::Forms(Forms const &oldForm) {
@@ -34,7 +35,7 @@ Forms::Forms(Forms const &oldForm) {
 ///////////////////
 ///Deconstructors//
 ///////////////////
-Forms::~Form(void) {
+Forms::~Forms(void) {
     std::cout << this->_name << " Form got shredded and binned" << std::endl;
 }
 
@@ -46,23 +47,61 @@ Forms &Forms::operator=(Forms const &toCopy) {
     this->_isSigned = toCopy._isSigned;
     this->_gradeLevelExecution = toCopy._gradeLevelExecution;
     this->_gradeLevelSign = toCopy._gradeLevelSign;
+    return (*this);
+}
+
+std::ostream &operator<<(std::ostream &out, Forms const &obj)
+{
+	out << "📄" << obj.getName() << " Form:" << std::endl;
+	out << "Status:" << obj.isSigned() << std::endl;
+	out << "Grade to sign:" << obj.getSignGrade() << std::endl;
+	out << "Grade to execute:" << obj.getExecGrade() << std::endl;
+	return (out);
 }
 
 /////////////////////
 ///Getting/Setting///
 /////////////////////
-std::string Forms::getName(void) {
+std::string Forms::getName(void) const {
     return (this->_name);
 }
 
-int Forms::getSignGrade(void) {
-    return (this->signGrade);
+int Forms::getSignGrade(void) const {
+    return (this->_gradeLevelSign);
 }
 
-int Forms::getExecGrade(void) {
-    return (this->execGrade);
+int Forms::getExecGrade(void) const {
+    return (this->_gradeLevelExecution);
+}
+
+std::string Forms::isSigned(void) const {
+    if (_isSigned)
+        return("True");
+    else
+        return("False");
 }
 
 void Forms::setSignature(bureucrat const &bcrat) {
-    try 
+   if (this->_isSigned == true)
+        std::cout << "Form already signed bro" << std::endl;
+    else if (this->_gradeLevelSign < bcrat.getGrade()){
+        std::cout << "Bureucrat " << bcrat.getName() << " not qualified to sign this form." << std::endl;
+        throw gradeTooLowException();
+    }
+    else {
+        this->_isSigned = true;
+        std::cout << "Bureucrat " << bcrat.getName() << " has signed the " << this->_name << " form" << std::endl;
+    }
+        
 }
+
+///////////////////////
+///Exception Methods///
+///////////////////////
+const char *Forms::gradeTooLowException::what(void) const throw(){
+    return("Bureucrats Grade is too low and cant sign this form");
+} 
+
+const char *Forms::gradeTooHighException::what(void) const throw(){
+    return("Grade is too high should be between 1 & 150");
+} 

@@ -1,5 +1,5 @@
 NAME= bCratz
-SRC= Bureucrat.cpp  main.cpp
+SRC= Bureucrat.cpp main.cpp
 FLAGS= -Wextra -Werror -Wall -std=c++98
 
 all: $(NAME)

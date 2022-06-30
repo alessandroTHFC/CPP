@@ -5,7 +5,7 @@
 
 class bureucrat {
     private:
-        std::string const _name;
+        std::string _name;
         int         _grade;
 
     public:

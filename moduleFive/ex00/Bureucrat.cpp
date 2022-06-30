@@ -11,13 +11,12 @@ bureucrat::bureucrat(void) {
 
 bureucrat::bureucrat(const std::string name, int grade) {
     this->_name = name;
-    //////////Do we need to use Try Catch blocks here???
-    if (grade < 1)
-        throw gradeTooHighException();
-    else if (grade > 150)
-        throw gradeTooLowException();
-    else 
-        this->_grade = grade;
+        if (grade < 1)
+            throw gradeTooHighException();
+        else if (grade > 150)
+            throw gradeTooLowException();
+        else 
+            this->_grade = grade;
     std::cout << "Parameter Constructor Called" << std::endl;
 }
 
@@ -64,15 +63,19 @@ std::string bureucrat::getName(void) const {
 ///Increasing/Decreasing///
 ///////////////////////////
 void bureucrat::incrementGrade(void) {
-    if (_grade == 1)
+    if (_grade == 1){
+        std::cout << "Failing to Increment" << std::endl;
         throw gradeTooHighException();
+    }
     else
         this->_grade--;
 }
 
 void bureucrat::decrementGrade(void) {
-    if (_grade == 150)
+    if (_grade == 150){
+        std::cout << "Failing to Decrement" << std::endl;
         throw gradeTooLowException();
+    }
     else
         this->_grade++;
 }
@@ -81,9 +84,9 @@ void bureucrat::decrementGrade(void) {
 ///Exception Methods///
 ///////////////////////
 const char *bureucrat::gradeTooLowException::what(void) const throw(){
-    return("Grade is too low should be between 1 & 150 cockhead");
+    return("Grade is too low should be between 1 & 150");
 } 
 
 const char *bureucrat::gradeTooHighException::what(void) const throw(){
-    return("Grade is too high should be between 1 & 150 cockhead");
+    return("Grade is too high should be between 1 & 150");
 } 

@@ -6,27 +6,27 @@
 
 class Forms {
     private:
-        std::string const   _name;
+        std::string  _name;
         bool                _isSigned;
-        const int           _gradeLevelSign;
-        const int           _gradeLevelExecution;
+        int           _gradeLevelSign;
+        int           _gradeLevelExecution;
 
         public:
         ///Constructors
             Forms(void);
             Forms(const std::string name, int signGrade, int execGrade);
-            Forms(Form const &oldForm);
+            Forms(Forms const &oldForm);
         ///Deconstructors
             ~Forms(void);
         ///Operator Overloading
-            Forms &operator=(Form const &toCopy);
+            Forms &operator=(Forms const &toCopy);
         ///Getting/Setting
             std::string getName(void) const;
             int getSignGrade(void) const;
             int getExecGrade(void) const;
             void setSignature(bureucrat const &bCrat);
         ///Form Functions
-            bool isSigned(void) const;
+            std::string isSigned(void) const;
         ///Exception nestedClasses
         class gradeTooHighException: public std::exception
         {
@@ -39,6 +39,6 @@ class Forms {
                 virtual const char *what() const throw();
         };
 };
-        std::ostream &operator<<(std::ostream &stream, bureucrat const &bCrat);
+    std::ostream &operator<<(std::ostream &out, Forms const &obj);
 
 #endif

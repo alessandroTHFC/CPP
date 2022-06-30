@@ -4,7 +4,7 @@
 ///Constructors///
 //////////////////
 bureucrat::bureucrat(void) {
-    this->_name = "Usual Wanker Beureucrat";
+    this->_name = "Usual Wanker Bureucrat";
     this->_grade = 150;
     std::cout << "Default Bureucrat Constructor Called" << std::endl;
 }
@@ -80,9 +80,9 @@ void bureucrat::decrementGrade(void) {
 ///Exception Methods///
 ///////////////////////
 const char *bureucrat::gradeTooLowException::what(void) const throw(){
-    return("Grade is too low should be between 1 & 150 cockhead");
+    return("Grade is too low should be between 1 & 150");
 } 
 
 const char *bureucrat::gradeTooHighException::what(void) const throw(){
-    return("Grade is too high should be between 1 & 150 cockhead");
+    return("Grade is too high should be between 1 & 150");
 } 

@@ -1,26 +1,28 @@
-#include "Bureucrat.hpp"
+#include "Forms.hpp"
 
 int main(void) {
-    ///first Try Block should return error because Grade is higher than 200;
-   try {
-       bureucrat bCrat1("Randy", 200);
-   }
-   catch(std::exception &e) {
-       std::cout << e.what() << std::endl;
-   }
-    ///second Try Block should return error because Grade is lower than 1;
     try {
-       bureucrat bCrat2("Carson", -200);
-   }
-   catch(std::exception &e) {
-       std::cout << e.what() << std::endl;
-   }
-    ///third Try Block should not return error;
-     try {
-       bureucrat bCrat3("Hans", 20);
-       std::cout << bCrat3;
-   }
-   catch(std::exception &e) {
-       std::cout << e.what() << std::endl;
-   }
+        Forms form1("Player Contract", 150, 150);
+        bureucrat bCrat1("Richarlison", 1);
+        form1.setSignature(bCrat1);
+        std::cout << "Welcome to the Club" << std::endl;
+        bCrat1.incrementGrade(); // this will throw the error. Everything previous will work.
+    }
+    catch (std::exception &e) {
+        std::cout << "About to print the exception" << std::endl;
+        std::cout << e.what() << std::endl;
+    }
+    //////////////////////////////////
+    //////////////////////////////////
+    std::cout  << "<<<<<<<<<<<<>>>>>>>>>>>" << std::endl;
+    try {
+        Forms form1("Drivers License", 1, 1); ///this whole code block will fail, Caitlyn Jenner shouldnt be driving;
+        std::cout << form1;
+        bureucrat bCrat1("Caitlyn Jenner", 150);
+        form1.setSignature(bCrat1);
+    }
+    catch (std::exception &e) {
+        std::cout << "About to print the exception" << std::endl;
+        std::cout << e.what() << std::endl;
+    }
 }

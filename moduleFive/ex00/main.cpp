@@ -4,6 +4,7 @@ int main(void) {
     ///first Try Block should return error because Grade is higher than 200;
    try {
        bureucrat bCrat1("Randy", 200);
+       std::cout << bCrat1 ;
    }
    catch(std::exception &e) {
        std::cout << e.what() << std::endl;
@@ -24,4 +25,6 @@ int main(void) {
    catch(std::exception &e) {
        std::cout << e.what() << std::endl;
    }
+
+   
 }
