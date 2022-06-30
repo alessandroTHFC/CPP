@@ -35,6 +35,18 @@ class bureucrat {
             public:
                 virtual const char *what() const throw();
         };
+        ////////////////////////////////////////////////
+         class cannotIncrement: public std::exception 
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+        //////////////////////////////////////////////////
+         class cannotDecrement: public std::exception 
+        {
+            public:
+                virtual const char *what() const throw();
+        };
 };
 
 std::ostream &operator<<(std::ostream &stream, bureucrat const &bCrat);

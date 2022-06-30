@@ -25,4 +25,19 @@ int main(void) {
         std::cout << "About to print the exception" << std::endl;
         std::cout << e.what() << std::endl;
     }
+
+    std::cout << "<<<<<<<<<<<<<>>>>>>>>>>>>>" << std::endl;
+    Forms form1;
+    Forms pContract("PlayerContract", 1, 1);
+    Forms pApplication("Passport Application", 150, 150);
+    Forms copyApplication(pApplication);
+    
+
+
+    std::cout << form1;
+    form1 = pContract;
+    std::cout << "Uknown Form should become a Player Contract now" << std::endl;
+    std::cout << form1;
+    std::cout << "<<<<<<<<<<<<<>>>>>>>>>>>>>" << std::endl;
+    std::cout << copyApplication;
 }

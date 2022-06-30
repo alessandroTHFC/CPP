@@ -64,7 +64,7 @@ std::string bureucrat::getName(void) const {
 ///////////////////////////
 void bureucrat::incrementGrade(void) {
     if (_grade == 1)
-        throw gradeTooHighException();
+        throw cannotIncrement();
     else
         this->_grade--;
 }
@@ -79,10 +79,20 @@ void bureucrat::decrementGrade(void) {
 ///////////////////////
 ///Exception Methods///
 ///////////////////////
+
+/////////Grade Errors upon creation
 const char *bureucrat::gradeTooLowException::what(void) const throw(){
     return("Grade is too low should be between 1 & 150");
 } 
 
 const char *bureucrat::gradeTooHighException::what(void) const throw(){
     return("Grade is too high should be between 1 & 150");
+} 
+///////Incrementation Errors
+const char *bureucrat::cannotIncrement::what(void) const throw(){
+    return("Grade is already at maximum, can't increment");
+} 
+
+const char *bureucrat::cannotDecrement::what(void) const throw(){
+    return("Grade is already at maximum, can't increment");
 } 
