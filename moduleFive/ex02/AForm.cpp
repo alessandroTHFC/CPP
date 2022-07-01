@@ -97,7 +97,7 @@ void AForm::setSignature(bureucrat const &bcrat) {
  void    AForm::execute(bureucrat const &bCrat) const {
         if (!this->_isSigned)
             throw formNotSignedException();
-        else if (bCrat.getGrade() < this->_gradeLevelExecution)
+        else if (bCrat.getGrade() > this->_gradeLevelExecution)
             throw gradeTooLowException();
         else
             formFunctionality();

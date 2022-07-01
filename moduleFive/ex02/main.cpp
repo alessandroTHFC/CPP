@@ -3,12 +3,17 @@
 #include "Bureucrat.hpp"
 
 int main(void) {
-    AForm* form1 = new shrubberyCreation("Magical Erb");
-    bureucrat bCrat1("Mary-Jane", 1);
 
-    form1->setSignature(bCrat1);
-    bCrat1.executeForm(*form1);
+    try {
+        AForm* form1 = new shrubberyCreation("Magical Erb");
+        bureucrat bCrat1("Mary-Jane", 1);
 
-    delete form1;
+        form1->setSignature(bCrat1);
+        bCrat1.executeForm(*form1);
 
+        delete form1;
+    }
+    catch(std::exception &e){
+        std::cout << e.what() << std::endl;
+    }
 }
