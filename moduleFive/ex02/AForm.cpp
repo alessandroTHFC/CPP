@@ -92,8 +92,17 @@ void AForm::setSignature(bureucrat const &bcrat) {
         this->_isSigned = true;
         std::cout << "Bureucrat " << bcrat.getName() << " has signed the " << this->_name << " form" << std::endl;
     }
-        
 }
+
+ void    AForm::execute(bureucrat const &bCrat) const {
+        if (!this->_isSigned)
+            throw formNotSignedException();
+        else if (bCrat.getGrade() < this->_gradeLevelExecution)
+            throw gradeTooLowException();
+        else
+            formFunctionality();
+
+} 
 
 ///////////////////////
 ///Exception Methods///
@@ -104,4 +113,8 @@ const char *AForm::gradeTooLowException::what(void) const throw(){
 
 const char *AForm::gradeTooHighException::what(void) const throw(){
     return("Grade is too high should be between 1 & 150");
+} 
+
+const char *AForm::formNotSignedException::what(void) const throw(){
+    return("Form needs to be signed before execution, go find an appropriate Bureucrat");
 } 

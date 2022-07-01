@@ -1,5 +1,5 @@
-#ifndef SHRUBS_HPP
-# define SHRUBS_HPP
+#ifndef SHRUBBERYCREATION_HPP
+# define SHRUBBERYCREATION_HPP
 
 #include "AForm.hpp"
 
@@ -16,11 +16,15 @@ class   shrubberyCreation: public AForm {
     ///Operator Overloads
         shrubberyCreation &operator=(shrubberyCreation const &oldShrub);
     ///Shrub Getters
-        std::string    getTarget(void);
+        std::string    getTarget(void) const;
+    ///Shrub Exceptions
+        class shrubFileCantOpen: public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
     ///Shrub Functions
-        void execute(void) const;
+        void formFunctionality(void) const;
 };
-    ///Ostream Overload
         std::ostream &operator<<(std::ostream &out, shrubberyCreation const &shrub);
-
 #endif

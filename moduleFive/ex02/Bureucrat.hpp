@@ -4,6 +4,8 @@
 #include "AForm.hpp"
 #include <iostream>
 
+class AForm;
+
 class bureucrat {
     private:
         std::string _name;

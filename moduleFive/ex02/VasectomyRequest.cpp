@@ -1,26 +1,58 @@
-#ifndef VASECTOMY_HPP
-# define VASECTOMY_HPP
+#include "VasectomyRequest.hpp"
 
-#include "AForm.hpp"
+//////////////////
+///Constructors///
+//////////////////
+vasectomyRequest::vasectomyRequest(void): AForm("vasectomyRequest", 25, 5){
+    this->_target = "Void";
+    std::cout << "Default form constructor called, base level vasectomyRequest form created" << std::endl;
+}
 
-class   vasectomyRequest: public AForm {
-    private:
-        std::string _target;
-    public:
-    ///Constructors
-        vasectomyRequest(void);
-        vasectomyRequest(std::string _target);
-        vasectomyRequest(vasectomyRequest const &oldShrub);
-    ///Deconstructor
-        ~vasectomyRequest(void);
-    ///Operator Overloads
-        vasectomyRequest &operator=(vasectomyRequest const &oldShrub);
-    ///Shrub Getters
-        std::string    getTarget(void);
-    ///Shrub Functions
-        void execute(void) const;
-};
-    ///Ostream Overload
-        std::ostream &operator<<(std::ostream &out, vasectomyRequest const &shrub);
+vasectomyRequest::vasectomyRequest(std::string target): AForm("vasectomyRequest", 25, 5) {
+    this->_target = target;
+        std::cout << "vasectomyRequest form for " << this->_target << " created" << std::endl;
+}
 
-#endif
+vasectomyRequest::vasectomyRequest(vasectomyRequest const &oldForm): AForm(oldForm) {
+    *this = oldForm;
+    std::cout << "Form Photocopied" << std::endl;
+}
+
+///////////////////
+///Deconstructors//
+///////////////////
+vasectomyRequest::~vasectomyRequest(void) {
+    std::cout << "vasectomyRequest Form got shredded and binned" << std::endl;
+}
+
+//////////////////////////
+///Operator Overloading///
+//////////////////////////
+vasectomyRequest &vasectomyRequest::operator=(vasectomyRequest const &toCopy) {
+    this->_target = toCopy._target;
+    return (*this);
+}
+
+std::ostream &operator<<(std::ostream &out, vasectomyRequest const &obj)
+{
+	out << "📄" << obj.getName() << " Form:" << std::endl;
+    out << "Target:" << obj.getTarget() << std::endl;
+	out << "Status:" << obj.isSigned() << std::endl;
+	out << "Grade to sign:" << obj.getSignGrade() << std::endl;
+	out << "Grade to execute:" << obj.getExecGrade() << std::endl;
+	return (out);
+}
+
+/////////////////////
+///Getting/Setting///
+/////////////////////
+std::string vasectomyRequest::getTarget(void) const {
+    return(this->_target);
+}
+
+/////////////////////////
+///Vasectomy Functions///
+/////////////////////////
+void    vasectomyRequest::formFunctionality(void) const {
+    std::cout << this->_target << " has finally got his balls snipped, goodbye manhood" << std::endl;
+}

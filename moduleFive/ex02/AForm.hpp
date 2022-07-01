@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Bureucrat.hpp"
 
+class bureucrat;
+
 class AForm {
     private:
         std::string  _name;
@@ -31,7 +33,8 @@ class AForm {
 
         ///Form Functions
             std::string isSigned(void) const;
-            virtual void execute(bureucrat const &bCrat) const = 0; ////Pure Virtual Function
+            void execute(bureucrat const &bCrat) const; 
+            virtual void formFunctionality(void) const = 0;
 
         ///Exception nestedClasses
         class gradeTooHighException: public std::exception
@@ -40,6 +43,11 @@ class AForm {
                 virtual const char *what() const throw();
         };
         class gradeTooLowException: public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
+        class formNotSignedException: public std::exception
         {
             public:
                 virtual const char *what() const throw();

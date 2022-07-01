@@ -15,10 +15,10 @@ class   presidentialPardon: public AForm {
         ~presidentialPardon(void);
     ///Operator Overloads
         presidentialPardon &operator=(presidentialPardon const &oldShrub);
-    ///Shrub Getters
+    ///Presidential Getters
         std::string    getTarget(void);
-    ///Shrub Functions
-        void execute(void) const;
+    ///Presidential Functions
+        void formFunctionality(void) const;
 };
     ///Ostream Overload
         std::ostream &operator<<(std::ostream &out, presidentialPardon const &shrub);

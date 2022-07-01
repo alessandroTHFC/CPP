@@ -76,6 +76,13 @@ void bureucrat::decrementGrade(void) {
         this->_grade++;
 }
 
+///////////////////////////
+///Bureucratic Functions///
+///////////////////////////
+void bureucrat::executeForm(AForm const &form) {
+    form.execute(*this);
+}
+
 ///////////////////////
 ///Exception Methods///
 ///////////////////////
