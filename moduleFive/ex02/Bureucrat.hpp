@@ -23,6 +23,8 @@ class bureucrat {
     ///Getters
         int getGrade(void) const;
         std::string getName(void) const;
+    ///Setters
+        void    setSignGrade(int newGrade);
     ///Increasing/Decreasing
         void    incrementGrade(void);
         void    decrementGrade(void);

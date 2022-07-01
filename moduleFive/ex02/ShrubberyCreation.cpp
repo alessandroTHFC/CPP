@@ -66,8 +66,10 @@ const char *shrubberyCreation::shrubFileCantOpen::what(void) const throw(){
 /////////////////////
 void    shrubberyCreation::formFunctionality(void) const {
     std::ofstream   outputFile;
+    std::string		fileName(_target);
+	fileName.append("_shrubs");
 
-    outputFile.open(_target + "shrubs");
+    outputFile.open(fileName.c_str(), std::ios::out);
     if (!outputFile.is_open())
         throw shrubFileCantOpen();
    outputFile << "        W         " << std::endl;

@@ -1,4 +1,4 @@
-NAME= bCratz2
+NAME= customForms
 SRC= Bureucrat.cpp AForm.cpp PresidentialPardon.cpp ShrubberyCreation.cpp VasectomyRequest.cpp main.cpp
 FLAGS= -Wextra -Werror -Wall -std=c++98
 

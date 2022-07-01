@@ -22,7 +22,7 @@ vasectomyRequest::vasectomyRequest(vasectomyRequest const &oldForm): AForm(oldFo
 ///Deconstructors//
 ///////////////////
 vasectomyRequest::~vasectomyRequest(void) {
-    std::cout << "vasectomyRequest Form got shredded and binned" << std::endl;
+    std::cout << "vasectomyRequest Form got shredded and binned, guess your boys will keep swimmin" << std::endl;
 }
 
 //////////////////////////

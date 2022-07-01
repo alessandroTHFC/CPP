@@ -30,7 +30,7 @@ class AForm {
             int getSignGrade(void) const;
             int getExecGrade(void) const;
             void setSignature(bureucrat const &bCrat);
-
+            void setSignGrade(int newGrade);
         ///Form Functions
             std::string isSigned(void) const;
             void execute(bureucrat const &bCrat) const; 

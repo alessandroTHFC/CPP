@@ -1,5 +1,5 @@
-#ifndef PRESI_HPP
-# define PRESI_HPP
+#ifndef PRESIDENTIALPARDON_HPP
+# define PRESIDENTIALPARDON_HPP
 
 #include "AForm.hpp"
 
@@ -16,7 +16,7 @@ class   presidentialPardon: public AForm {
     ///Operator Overloads
         presidentialPardon &operator=(presidentialPardon const &oldShrub);
     ///Presidential Getters
-        std::string    getTarget(void);
+        std::string    getTarget(void) const;
     ///Presidential Functions
         void formFunctionality(void) const;
 };

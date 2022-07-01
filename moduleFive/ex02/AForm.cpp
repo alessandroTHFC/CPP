@@ -18,12 +18,12 @@ AForm::AForm(const std::string name, int signGrade, int execGrade) {
         throw gradeTooHighException();
     else if (signGrade > 150 || execGrade > 150)
         throw gradeTooLowException();
-    else if (signGrade > execGrade)
+    else if (signGrade < execGrade)
         throw gradeTooHighException();
     else {
         this->_gradeLevelSign = signGrade;
         this->_gradeLevelExecution = execGrade;
-        std::cout << "Custom Form " << this->_name << " created" << std::endl;
+        std::cout << "Base Class Custom Form " << this->_name << " created" << std::endl;
     }
 }
 
@@ -36,7 +36,7 @@ AForm::AForm(AForm const &oldForm) {
 ///Deconstructors//
 ///////////////////
 AForm::~AForm(void) {
-    std::cout << this->_name << " Form got shredded and binned" << std::endl;
+    std::cout << "Base Class " << this->_name << " Form got shredded and binned" << std::endl;
 }
 
 //////////////////////////
@@ -92,6 +92,11 @@ void AForm::setSignature(bureucrat const &bcrat) {
         this->_isSigned = true;
         std::cout << "Bureucrat " << bcrat.getName() << " has signed the " << this->_name << " form" << std::endl;
     }
+}
+
+void AForm::setSignGrade(int newGrade) {
+    std::cout << this->_name << " Form has had its Sign Off Grade changed from " << this->_gradeLevelSign << " to " << newGrade << std::endl;
+    this->_gradeLevelSign = newGrade;
 }
 
  void    AForm::execute(bureucrat const &bCrat) const {
