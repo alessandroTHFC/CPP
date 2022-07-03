@@ -2,6 +2,8 @@
 
 int main(void)
 {
+    ///Creating subclasses, Scav is sublass of Clap
+
     scavTrap    scav1;
     scavTrap    scav2("Sammy");
     scavTrap    scav3(scav2);

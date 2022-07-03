@@ -1,30 +1,82 @@
 #include "fixed.hpp"
+#include <iostream>
+#include <fstream>
+#include <cmath>
 
-fixed::fixed(void){
-    std::cout << "Standard Constructor Called" << std::endl;
-    this->value = 0;
+//////////////////
+// Constructors //
+//////////////////
+
+fixed::fixed(void)
+{
+	std::cout << "Default constructor called" << std::endl;
+	this->value = 0;
+	return ;
 }
 
-fixed::fixed(const fixed &oldObj){
-    std::cout << "Copy Constructor Called" << std::endl;
-    *this = oldObj;
+fixed::fixed(int x)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->value = x << fixed::_nbBits;
+	return ;
 }
 
-fixed::~fixed(){
-    std::cout << "Deconstructer Called" << std::endl;
+fixed::fixed(float const x)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->value = int(roundf(x * (1 << fixed::_nbBits)));
+	return ;
 }
 
-int fixed::getRedRaw(void) const {
-    std::cout << "getRedRaw called" << std::endl;
-    return(this->value);
+fixed::fixed(fixed const &oldObj)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	this->value = oldObj.getRedRaw();
+	return ;
 }
 
-void    fixed::setRawBits(int const &newVal) {
-    this->value = newVal;
+/////////////////////
+// Deconstructors //
+////////////////////
+
+fixed::~fixed(void)
+{
+	std::cout << "Deconstructor Called" << std::endl;
+	return ;
 }
 
-fixed & fixed::operator=(const fixed &oldObj) {
-    std::cout << "Operator Overloading of Assignment Operator called" << std::endl;
-    this->value = oldObj.getRedRaw();
-    return(*this);
+//////////////////////////
+// Operator Overload //
+//////////////////////////
+
+fixed	& fixed::operator=(fixed const &toCopy)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->value = toCopy.getRedRaw();
+	return (*this);
+}
+
+std::ostream	&operator<<(std::ostream &output, fixed const &fixed)
+{
+	output << fixed.toFloat();
+	return (output);
+}
+
+///////////////////////
+// Memeber functions //
+///////////////////////
+
+int		fixed::getRedRaw(void) const
+{
+	return (this->value);
+}
+
+float	fixed::toFloat(void) const
+{
+	return ((float)(this->value) / (1 << fixed::_nbBits));
+}
+
+int		fixed::toInt(void) const
+{
+	return (this->value >> fixed::_nbBits);
 }

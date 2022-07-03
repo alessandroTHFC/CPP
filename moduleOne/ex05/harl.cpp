@@ -1,16 +1,16 @@
 #include "harl.hpp"
-
+//Constructor
 harl::harl() {
     std::cout << "---Harl is born, Harl is an ballbreaker---" << std::endl;
 }
-
+//Deconstructor
 harl::~harl() {
     std::cout << "---Harl is dead, fk off Harl---" << std::endl;
 }
-
+//Harl complain function takes the required level as a parameter
 void    harl::complain(std::string level)
 {
-    void    (harl::*funcPtr[4]) (void) = {
+    void    (harl::*funcPtr[4]) (void) = { //function pointer array to 4 harl functions
 
         &harl::debug, 
         &harl::info, 
@@ -18,7 +18,7 @@ void    harl::complain(std::string level)
         &harl::error
     };
 
-    std::string levelType[4] = {
+    std::string levelType[4] = { //string array of the 4 levels
 
         "DEBUG", 
         "INFO", 
@@ -26,9 +26,9 @@ void    harl::complain(std::string level)
         "ERROR"
     };
 
-    for (int i = 0; i < 4; i++) {
-        if (level == levelType[i])
-            (this->*funcPtr[i])();
+    for (int i = 0; i < 4; i++) { //loops through the 4 levels
+        if (level == levelType[i])//if level parameter matches one of the 4 set in level types;
+            (this->*funcPtr[i])();//call the corresponding function pointer at that index;
     }
 }
 

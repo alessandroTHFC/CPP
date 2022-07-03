@@ -56,6 +56,8 @@ int main(void)
 
     Bruno.whatAmIThinking(1);
 
+    ///Now that Animal class is Abstract
+
     //AAnimal*  unknown = new AAnimal;
     //above call is now throws error. Cannot declare an animal class by itself because its abstract.
 

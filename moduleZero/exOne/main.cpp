@@ -6,7 +6,7 @@ int main(void)
     std::string command;
     Contact     contactEntry[8];
 
-    while (1) {
+    while (1) { //Phonebook in infinite loop unless exited properly;
         
         std::cout << "Enter Command (Add, Search, Exit): ";
         std::cin >> command;
