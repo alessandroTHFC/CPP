@@ -1,22 +1,33 @@
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
-# include <iostream>
+#include <fstream>
 
 class fixed
 {
-private:
-    int         value;
-    static  int _nbBits;
+	public:
+		// Constructors
+		fixed(void);
+		fixed(int x);
+		fixed(float const x);
+		fixed(fixed const &oldObj);
 
-public:
-    fixed(void);
-    fixed(fixed const &oldObj);
-    ~fixed();
+		// Destructors
+		~fixed(void);
 
-    int getRedRaw(void) const;
-    void    setRawBits(int const &newVal);
-    fixed & operator=(fixed const &oldObj);
+		// Overloaded operators
+		fixed	&operator=(fixed const & rhs);
 
+		// Member functions
+		int		getRedRaw(void) const;
+		float	toFloat(void) const;
+		int		toInt(void) const;
+
+	private:
+		int					value;
+		static int const	_nbBits = 8;
 };
+
+std::ostream	&operator<<(std::ostream &output, fixed const &fixed);
+
 #endif

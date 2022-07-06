@@ -17,7 +17,7 @@ bureucrat::bureucrat(const std::string name, int grade) {
         throw gradeTooLowException();
     else 
         this->_grade = grade;
-    std::cout << "Parameter Constructor Called" << std::endl;
+    std::cout << "Parameter Bureucrat Constructor Called, another Bureucrat has entered the world " << std::endl;
 }
 
 bureucrat::bureucrat(bureucrat const &oldBureucrat) {
@@ -59,6 +59,15 @@ std::string bureucrat::getName(void) const {
     return(this->_name);
 }
 
+void    bureucrat::setSignGrade(int newGrade) {
+    this->_grade = newGrade;
+    if (newGrade < this->_grade)
+        std::cout << "You're getting demoted " << this->_name << " you suck" << std::endl;
+    else
+        std::cout << "Congratulations " << this->_name << " you got promoted" << std::endl;
+    std::cout << "New Grade Approved: " << newGrade << std::endl;
+}
+
 ///////////////////////////
 ///Increasing/Decreasing///
 ///////////////////////////
@@ -74,6 +83,13 @@ void bureucrat::decrementGrade(void) {
         throw gradeTooLowException();
     else
         this->_grade++;
+}
+
+///////////////////////////
+///Bureucratic Functions///
+///////////////////////////
+void bureucrat::executeForm(AForm const &form) {
+    form.execute(*this);
 }
 
 ///////////////////////

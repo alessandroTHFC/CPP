@@ -1,10 +1,12 @@
-#ifndef FORMS_HPP
-# define FORMS_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
 #include "Bureucrat.hpp"
 
-class Forms {
+class bureucrat;
+
+class AForm {
     private:
         std::string  _name;
         bool                _isSigned;
@@ -13,20 +15,27 @@ class Forms {
 
         public:
         ///Constructors
-            Forms(void);
-            Forms(const std::string name, int signGrade, int execGrade);
-            Forms(Forms const &oldForm);
+            AForm(void);
+            AForm(const std::string name, int signGrade, int execGrade);
+            AForm(AForm const &oldForm);
+
         ///Deconstructors
-            ~Forms(void);
+          virtual ~AForm(void);///Virtual Deconstructor To Suit Each Different Form
+
         ///Operator Overloading
-            Forms &operator=(Forms const &toCopy);
+            AForm &operator=(AForm const &toCopy);
+
         ///Getting/Setting
             std::string getName(void) const;
             int getSignGrade(void) const;
             int getExecGrade(void) const;
             void setSignature(bureucrat const &bCrat);
+            void setSignGrade(int newGrade);
         ///Form Functions
             std::string isSigned(void) const;
+            void execute(bureucrat const &bCrat) const; 
+            virtual void formFunctionality(void) const = 0;
+
         ///Exception nestedClasses
         class gradeTooHighException: public std::exception
         {
@@ -38,7 +47,12 @@ class Forms {
             public:
                 virtual const char *what() const throw();
         };
+        class formNotSignedException: public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
 };
-    std::ostream &operator<<(std::ostream &out, Forms const &obj);
+    std::ostream &operator<<(std::ostream &out, AForm const &obj);
 
 #endif

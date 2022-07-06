@@ -3,12 +3,15 @@
 //////////////////
 ///Constructors///
 //////////////////
+
+///A scav follows claptraps format but has different stats
 scavTrap::scavTrap(): ClapTrap(){
     std::cout << "Default Scav constructer called" << std::endl;
     this->_hp = 100;
     this->_energy = 50;
     this->_attack = 20;
 }
+
 
 scavTrap::scavTrap(std::string name): ClapTrap(name){
     this->_name = name;

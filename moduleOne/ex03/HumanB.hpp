@@ -2,7 +2,7 @@
 # define HUMANB_HPP
 # include "Weapon.hpp"
 
-class   HumanB {
+class   HumanB { 
 
     private:
         std::string _name;

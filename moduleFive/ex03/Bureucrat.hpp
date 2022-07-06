@@ -1,7 +1,10 @@
 #ifndef BUREUCRAT_HPP
 # define BUREUCRAT_HPP
 
+#include "AForm.hpp"
 #include <iostream>
+
+class AForm;
 
 class bureucrat {
     private:
@@ -20,9 +23,13 @@ class bureucrat {
     ///Getters
         int getGrade(void) const;
         std::string getName(void) const;
+    ///Setters
+        void    setSignGrade(int newGrade);
     ///Increasing/Decreasing
         void    incrementGrade(void);
         void    decrementGrade(void);
+    ///Bureucrat Functions
+        void executeForm(AForm const &form);
     ///Exception nesterClasses
         class gradeTooHighException: public std::exception 
         {

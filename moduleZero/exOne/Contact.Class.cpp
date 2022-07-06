@@ -8,7 +8,7 @@ Contact::~Contact(void){
     return;
 }
 
-void    Contact::addContact(Contact &contactEntry) {
+void    Contact::addContact(Contact &contactEntry) { ///constructor calls getInfo on each private attribute;
     contactEntry.getInfo("FirstName: ", contactEntry.firstName);
     contactEntry.getInfo("LastName: ", contactEntry.lastName);
     contactEntry.getInfo("Nickname: ", contactEntry.nickName);
@@ -18,17 +18,17 @@ void    Contact::addContact(Contact &contactEntry) {
 }
 
 void    Contact::getInfo(std::string prompt, std::string &contactInfo) {
-        while (contactInfo.empty()) {
-            std::cout << "Enter your " << prompt;
-            std::cin >> contactInfo;
+        while (contactInfo.empty()) { //Loops through the contact atttributes, while they are empty;
+            std::cout << "Enter your " << prompt;//Prints the prompt;
+            std::cin >> contactInfo; //Waits for input which is output into contact info slot, breaks loop;
             if (contactInfo == "  ")
                 break;
         }        
-        std::cout << "Confirming Result as: " << contactInfo << std::endl;
+        std::cout << "Confirming Result as: " << contactInfo << std::endl; //Prints confirmation of input;
 }
 
-void    Contact::printEntry(Contact &contactEntry){
-    std::cout << "First Name is: " << contactEntry.firstName << std::endl;
+void    Contact::printEntry(Contact &contactEntry){ ///Prints attributes of refrenced contact entry;
+    std::cout << "First Name is: " << contactEntry.firstName << std::endl; 
     std::cout << "Last Name is: " << contactEntry.lastName << std::endl;
     std::cout << "Nickname is: " << contactEntry.nickName << std::endl;
     std::cout << "Phone Number is: " << contactEntry.phoneNumber << std::endl;
@@ -36,7 +36,7 @@ void    Contact::printEntry(Contact &contactEntry){
     return;
 }
 
-std::string    Contact::truncateTxt(std::string text) {
+std::string    Contact::truncateTxt(std::string text) { //Function resizes entry fields to fit 10 char limit;
     if(text.length() > 10) {
         text.resize(9);
         text.resize(10, '.');
@@ -44,7 +44,7 @@ std::string    Contact::truncateTxt(std::string text) {
     return (text);
 }
 
-void    Contact::printContacts(Contact *contactEntry, int i) {
+void    Contact::printContacts(Contact *contactEntry, int i) { //Function prints contact entry into formatted display;
     int j = 0;
 
     std::cout << std::setw(10) << "|  index   |"
@@ -54,19 +54,19 @@ void    Contact::printContacts(Contact *contactEntry, int i) {
 	std::cout << "————————————————————————————————————————————" << std::endl;
     while (j++ < i)
     {
-        std::string first_name = contactEntry[j].firstName;
+        std::string first_name = contactEntry[j].firstName;//sets entry values as local strings;
         std::string last_name = contactEntry[j].lastName;
         std::string _nickname = contactEntry[j].nickName;
         std::cout << "|" << std::setw(10) << j;
-        std::cout << "|" << std::setw(10) << Contact::truncateTxt(first_name);
+        std::cout << "|" << std::setw(10) << Contact::truncateTxt(first_name);//Truncates to size limit and prints;
         std::cout << "|" << std::setw(10) << Contact::truncateTxt(last_name);
         std::cout << "|" << std::setw(10) << Contact::truncateTxt(_nickname) << std::endl;
     } 
-    std::cout << "Input Desired Contact's Index Number: ";
+    std::cout << "Input Desired Contact's Index Number: "; //Get input of entry to be seen in more detail;
     std::cin >> j;
-    std::cout << "Selected index is " << j << std::endl;
+    std::cout << "Selected index is " << j << std::endl;//Confirm number
     if (j <= i)
-        Contact::printEntry(contactEntry[j]);
+        Contact::printEntry(contactEntry[j]);//Use Print Function to display;
     else
         std::cout << "Invalid Index Number" << std::endl;
     return ;

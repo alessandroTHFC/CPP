@@ -2,6 +2,7 @@
 
 int main(void)
 {
+    ///Testing operator overloads;
     fixed  a;
     fixed const b(fixed(5.05f)* fixed(2));
 
