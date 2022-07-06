@@ -1,12 +1,12 @@
-NAME= Conversions
-SRC= main.cpp convert.cpp
+NAME= fuckingWithPointers
+SRC= main.cpp data.cpp
 FLAGS= -Wextra -Werror -Wall -std=c++98
 
 all: $(NAME)
 
 $(NAME):
 	@g++ $(FLAGS) $(SRC) -o $(NAME)
-	@echo ...can't wait to convert some shit
+	@echo ...can't wait to convert some pointers
 
 fclean:
 	@rm -f $(NAME)
