@@ -1,4 +1,4 @@
-NAME= fuckingWithPointers
+NAME= fOxckingWithPointers
 SRC= main.cpp data.cpp
 FLAGS= -Wextra -Werror -Wall -std=c++98
 
@@ -6,7 +6,7 @@ all: $(NAME)
 
 $(NAME):
 	@g++ $(FLAGS) $(SRC) -o $(NAME)
-	@echo ...can't wait to convert some pointers
+	@echo ...here we go
 
 fclean:
 	@rm -f $(NAME)
