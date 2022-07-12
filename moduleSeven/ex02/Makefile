@@ -1,23 +1,16 @@
-NAME		=	test
-CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
-CC			=	c++
-SRCS		=	main.cpp Array.cpp
-OBJS		=	$(SRCS:.cpp=.o)
+NAME= hipHopArrays
+SRC= main.cpp
+FLAGS= -Wextra -Werror -Wall -std=c++98
 
-.cpp.o:
-			$(CC) $(CPPFLAGS) -c $< -o $(<:.cpp=.o)
+all: $(NAME)
 
-all:		$(NAME)
+$(NAME):
+	@g++ $(FLAGS) $(SRC) -o $(NAME)
+	@echo ...This excercise is a tribute to Naughty By Nature and their 1993 track Hip Hop Hooray
+	@echo ...while implementing an array class template...
 
-$(NAME):	$(OBJS)
-			$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
+fclean:
+	@rm -f $(NAME)
+	@echo ...don't mind me i'm just cleaning up...
 
-clean:
-			rm -rf $(OBJS)
-
-fclean:		clean
-			rm -rf $(NAME)
-
-re:			fclean all
-
-.PHONY:		all clean fclean re
+re: fclean all
