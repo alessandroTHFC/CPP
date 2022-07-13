@@ -6,8 +6,8 @@ all: $(NAME)
 
 $(NAME):
 	@g++ $(FLAGS) $(SRC) -o $(NAME)
-	@echo ...This excercise is a tribute to Naughty By Nature and their 1993 track Hip Hop Hooray
-	@echo ...while implementing an array class template...
+	@echo ...hate to sound sleazy but tease me, i dont want it if its that easy..to find
+	
 
 fclean:
 	@rm -f $(NAME)
