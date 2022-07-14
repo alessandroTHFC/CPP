@@ -1,6 +1,6 @@
 NAME= EasyFind
 SRC= main.cpp
-FLAGS= -Wextra -Werror -Wall -std=c++98
+FLAGS= -Wextra -Werror -Wall -std=c++98 -std=c++11
 
 all: $(NAME)
 
