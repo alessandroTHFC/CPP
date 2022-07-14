@@ -1,12 +1,12 @@
 NAME= span
 SRC= main.cpp span.cpp
-FLAGS= -Wextra -Werror -Wall -std=c++98
+FLAGS= -Wextra -Werror -Wall -std=c++98 -std=c++11
 
 all: $(NAME)
 
 $(NAME):
 	@g++ $(FLAGS) $(SRC) -o $(NAME)
-	@echo ...here we go
+	@echo ...get ready for some Stranger Things....
 	
 
 fclean:
