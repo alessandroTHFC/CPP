@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <list>
 #include <iostream>
+#include <vector>
 
 class   valueNotFound: public std::exception {
     public:
@@ -13,15 +14,15 @@ class   valueNotFound: public std::exception {
 };
 
 
-//Function that returns iterator(location of value being searched);
+//Function that returns the value being searched;
 template <typename T>
 typename T::iterator    easyFind(T &container, int value) {
-    typename T::iterator location;              
+    typename T::iterator n;              
 
-    location = std::find(container.begin(), container.end(), value); // using <algorithm> "find". Returns the location of value;
-    if (location == container.end())//end is 1 index pos after the end (almost like null terminator). if it equals end then its gone through the list without finding it.
+    n = std::find(container.begin(), container.end(), value); // using <algorithm> "find". Returns the n of value;
+    if (n == container.end())//end is 1 index pos after the end (almost like null terminator). if it equals end then its gone through the list without finding it.
         throw valueNotFound();
-    return(location);
+    return(n);
 }
 
 ///////////////////////////////
