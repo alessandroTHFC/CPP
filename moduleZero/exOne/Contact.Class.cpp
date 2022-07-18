@@ -44,6 +44,7 @@ std::string    Contact::truncateTxt(std::string text) { //Function resizes entry
 
 void    Contact::printContacts(Contact *contactEntry, int i) { //Function prints contact entry into formatted display;
     int j = 0;
+    std::string indexValue;
     std::cout << std::setw(10) << "|  index   |"
 	<< std::setw(10) << "  f_name  |"
 	<< std::setw(10) << "  l_name  |"
@@ -62,7 +63,8 @@ void    Contact::printContacts(Contact *contactEntry, int i) { //Function prints
         std::cout << "|" << std::setw(10) << Contact::truncateTxt(_nickname) << std::endl;
     } 
     std::cout << "Input Desired Contact's Index Number: "; //Get input of entry to be seen in more detail;
-    std::cin >> j;
+    std::cin >> indexValue;
+    j = atoi(indexValue.c_str());
     std::cout << "Selected index is " << j << std::endl;//Confirm number
     if (j <= i)
         Contact::printEntry(contactEntry[j]);//Use Print Function to display;
