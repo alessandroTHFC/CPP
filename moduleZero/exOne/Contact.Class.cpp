@@ -44,7 +44,6 @@ std::string    Contact::truncateTxt(std::string text) { //Function resizes entry
 
 void    Contact::printContacts(Contact *contactEntry, int i) { //Function prints contact entry into formatted display;
     int j = 0;
-
     std::cout << std::setw(10) << "|  index   |"
 	<< std::setw(10) << "  f_name  |"
 	<< std::setw(10) << "  l_name  |"
@@ -52,6 +51,8 @@ void    Contact::printContacts(Contact *contactEntry, int i) { //Function prints
 	std::cout << "————————————————————————————————————————————" << std::endl;
     while (j++ < i)
     {
+        if (j == 9)
+            break;
         std::string first_name = contactEntry[j].firstName;//sets entry values as local strings;
         std::string last_name = contactEntry[j].lastName;
         std::string _nickname = contactEntry[j].nickName;
@@ -70,11 +71,12 @@ void    Contact::printContacts(Contact *contactEntry, int i) { //Function prints
     return ;
 }
 
-void    Contact::removeContact(Contact &contactEntry) {
-    contactEntry.firstName.clear();
-    contactEntry.lastName.clear();
-    contactEntry.nickName.clear();
-    contactEntry.phoneNumber.clear();
-    contactEntry.darkestSecret.clear();
+Contact &Contact::operator=(Contact const &newContact) {
+    this->firstName = newContact.firstName;
+    this->lastName = newContact.lastName;
+    this->nickName = newContact.nickName;
+    this->phoneNumber = newContact.phoneNumber;
+    this->darkestSecret = newContact.darkestSecret;
+    return(*this);
 }
 

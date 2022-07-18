@@ -11,18 +11,19 @@ int main(void)
         std::cout << "Enter Command (Add, Search, Exit): ";
         std::cin >> command;
         if (command == "Add") {
-            if (i < 8) {
+            if (i <= 8) {
+                i++;
                 contactEntry[i].indexPos = i;
                 contactEntry[i].addContact();
-                i++;
             }    
             else {
+                static int j = 1;
+                Contact replacement;
                 std::cout << "Phonebook is full, Overwriting Contact 1" << std::endl;
-                Contact::removeContact(contactEntry[i]);
-                contactEntry[i].addContact();
-                contactEntry[0] = contactEntry[i];
+                replacement.addContact();
+                contactEntry[j] = replacement;
+                j++;
             } 
-            std::cout << "index number " << i << std::endl; 
         }
         else if (command == "Search") {
             if (i > 0)

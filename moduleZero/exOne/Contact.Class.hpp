@@ -23,6 +23,7 @@ class Contact {
         void addContact(void);
         static void printContacts(Contact *contactEntry, int i);
         static void removeContact(Contact &contactEntry);
+        Contact &operator=(Contact const &newContact);
 
         Contact(void);
         ~Contact(void);
