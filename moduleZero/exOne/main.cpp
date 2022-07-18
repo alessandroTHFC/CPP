@@ -11,7 +11,7 @@ int main(void)
         std::cout << "Enter Command (Add, Search, Exit): ";
         std::cin >> command;
         if (command == "Add") {
-            if (i <= 8) {
+            if (i <= 7) {
                 i++;
                 contactEntry[i].indexPos = i;
                 contactEntry[i].addContact();
