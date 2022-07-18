@@ -67,7 +67,9 @@
         "locale": "cpp",
         "mutex": "cpp",
         "ratio": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "__split_buffer": "cpp",
+        "stack": "cpp"
     },
     "files.autoSave": "onFocusChange"
 }

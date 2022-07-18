@@ -4,21 +4,25 @@ int main(void)
 {
     int i = 0;
     std::string command;
-    Contact     contactEntry[8];
+    Contact     contactEntry[10];
 
     while (1) { //Phonebook in infinite loop unless exited properly;
         
         std::cout << "Enter Command (Add, Search, Exit): ";
         std::cin >> command;
         if (command == "Add") {
-            if (++i < 8) {
+            if (i < 8) {
                 contactEntry[i].indexPos = i;
-                Contact::addContact(contactEntry[i]);
+                contactEntry[i].addContact();
+                i++;
             }    
             else {
                 std::cout << "Phonebook is full, Overwriting Contact 1" << std::endl;
-                Contact::addContact(contactEntry[1]);
-            }    
+                Contact::removeContact(contactEntry[i]);
+                contactEntry[i].addContact();
+                contactEntry[0] = contactEntry[i];
+            } 
+            std::cout << "index number " << i << std::endl; 
         }
         else if (command == "Search") {
             if (i > 0)

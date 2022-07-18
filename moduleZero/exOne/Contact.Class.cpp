@@ -8,22 +8,20 @@ Contact::~Contact(void){
     return;
 }
 
-void    Contact::addContact(Contact &contactEntry) { ///constructor calls getInfo on each private attribute;
-    contactEntry.getInfo("FirstName: ", contactEntry.firstName);
-    contactEntry.getInfo("LastName: ", contactEntry.lastName);
-    contactEntry.getInfo("Nickname: ", contactEntry.nickName);
-    contactEntry.getInfo("PhoneNumber: ", contactEntry.phoneNumber);
-    contactEntry.getInfo("DarkestSecret: ", contactEntry.darkestSecret);
+void    Contact::addContact(void) { ///constructor calls getInfo on each private attribute;
+    this->getInfo("FirstName: ", this->firstName);
+    this->getInfo("LastName: ", this->lastName);
+    this->getInfo("Nickname: ", this->nickName);
+    this->getInfo("PhoneNumber: ", this->phoneNumber);
+    this->getInfo("DarkestSecret: ", this->darkestSecret);
     return;
 }
 
 void    Contact::getInfo(std::string prompt, std::string &contactInfo) {
-        while (contactInfo.empty()) { //Loops through the contact atttributes, while they are empty;
-            std::cout << "Enter your " << prompt;//Prints the prompt;
-            std::cin >> contactInfo; //Waits for input which is output into contact info slot, breaks loop;
-            if (contactInfo == "  ")
-                break;
-        }        
+        std::cout << "Enter your " << prompt;//Prints the prompt;
+        while(contactInfo.empty()) {
+            std::getline(std::cin, contactInfo); //Waits for input which is output into contact info slot, breaks loop;
+        }
         std::cout << "Confirming Result as: " << contactInfo << std::endl; //Prints confirmation of input;
 }
 
@@ -67,8 +65,16 @@ void    Contact::printContacts(Contact *contactEntry, int i) { //Function prints
     std::cout << "Selected index is " << j << std::endl;//Confirm number
     if (j <= i)
         Contact::printEntry(contactEntry[j]);//Use Print Function to display;
-    else
+    else 
         std::cout << "Invalid Index Number" << std::endl;
     return ;
+}
+
+void    Contact::removeContact(Contact &contactEntry) {
+    contactEntry.firstName.clear();
+    contactEntry.lastName.clear();
+    contactEntry.nickName.clear();
+    contactEntry.phoneNumber.clear();
+    contactEntry.darkestSecret.clear();
 }
 

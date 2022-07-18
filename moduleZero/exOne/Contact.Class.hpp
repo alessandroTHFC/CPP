@@ -20,8 +20,9 @@ class Contact {
         
     public:
         int             indexPos;
-        static void addContact(Contact &contactEntry);
+        void addContact(void);
         static void printContacts(Contact *contactEntry, int i);
+        static void removeContact(Contact &contactEntry);
 
         Contact(void);
         ~Contact(void);
