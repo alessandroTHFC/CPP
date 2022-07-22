@@ -5,9 +5,10 @@ int main()
         mutantStack<int> mstack;
         mstack.push(5);
         mstack.push(17);
-        std::cout << mstack.top() << std::endl;
+        std::cout << "First cout will be top of stack(17): " << mstack.top() << std::endl;
+        std::cout << "popping value off stack" << std::endl;
         mstack.pop();
-        std::cout << mstack.size() << std::endl;
+        std::cout << "second cout will be the size: " << mstack.size() << std::endl;
         mstack.push(3);
         mstack.push(5);
         mstack.push(737);

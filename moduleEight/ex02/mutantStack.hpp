@@ -56,6 +56,9 @@ class mutantStack: public std::stack<T, Container>
     typedef typename Container::iterator    iterator;
     typedef typename Container::iterator    reverse_iterator; 
 
+    //A stack by default is not iterable, however by using the c. we can access the underlying container(by default deque) and iterate through that. 
+    
+
     iterator    begin(void) {
         return (this->c.begin());
     }

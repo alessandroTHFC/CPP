@@ -59,7 +59,7 @@ hipHopArray<T>::hipHopArray(hipHopArray const &oldhipHopArray) {
     this->_currIdx = 0;
     this->_Hooo = oldhipHopArray._Hooo;
     this->_array = new hipHopArray[this->_Hooo];
-    for(int i = 0; i < this._Hooo; i++)
+    for(int i = 0; i < _Hooo; i++)
         this->array[i] = oldhipHopArray._array[i];
     
     
@@ -78,7 +78,7 @@ hipHopArray<T>::~hipHopArray(void){
 ///Operator Overloads///
 ////////////////////////
 template <typename T>
-hipHopArray<T> &hipHopArray<T>::operator=(hipHopArray const &toCopy) {
+hipHopArray<T> &hipHopArray<T>::operator=(hipHopArray<T> const &toCopy) {
     if(this->_array)
             delete [] this->_array;///Free original array
         this->_Hooo = toCopy._Hooo;
